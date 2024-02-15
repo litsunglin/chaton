@@ -1,0 +1,17 @@
+version: "3.9"  # Specify the Docker Compose file version
+
+services:
+  postgresql:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "35432:5432"  # Map PostgreSQL port 5432 to host port 35432
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data  # Create a volume for persistent data
+
+volumes:
+  postgresql-data:  # Define the volume for PostgreSQL data
