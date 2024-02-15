@@ -41,6 +41,27 @@ Define a message sent from a user to others.
 }
 ```
 
+### Database Schema
+#### tbl_user
+- `uuid`: a unique identifier for each user in a system, aka `userId`.
+- `data`: a JSONB column that stores `user` in JSON format.
+```sql
+tbl_user (
+  uuid VARCHAR(37) NOT NULL UNIQUE,
+  data JSONB NOT NULL
+);
+```
+
+#### tbl_message
+- `id`: auto-incremented primary key, to indicate messages' order.
+- `data`: a JSONB column that stores `message` in JSON format.
+```sql
+tbl_message (
+  id SERIAL PRIMARY KEY,
+  data JSONB NOT NULL
+);
+```
+
 ### WebSocket API
 #### `connection`
 - socket connection is established.
